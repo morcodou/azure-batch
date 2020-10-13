@@ -12,18 +12,15 @@ namespace AnimationCreator.Utils.Batch
     public class BatchUtils
     {
 
-        BatchClient m_BatchClient;
+        BatchClient _batchClient;
 
 
         public BatchUtils(string batchAccountUrl, string batchAccountName, string batchAccountKey)
         {
             // ToDo: Create the BatchClient.
-            var cred = new BatchSharedKeyCredentials(batchAccountUrl, batchAccountName, batchAccountKey);
-            m_BatchClient = BatchClient.Open(cred);
+            var credential = new BatchSharedKeyCredentials(batchAccountUrl, batchAccountName, batchAccountKey);
+            _batchClient = BatchClient.Open(credential);
         }
-
-
-
 
 
         public async Task CreatePoolIfNotExistAsync(string poolId)
@@ -39,9 +36,8 @@ namespace AnimationCreator.Utils.Batch
 
                 var skuAndImage = await GetNodeAgentSkuReferenceAsync(imageScanner);
 
-
                 // ToDo: Create the Pool
-                var pool = m_BatchClient.PoolOperations.CreatePool(poolId: poolId,
+                var pool = _batchClient.PoolOperations.CreatePool(poolId: poolId,
 
                     // ToDo: Specify the VM size
                     virtualMachineSize: "standard_d1_v2",
@@ -58,8 +54,6 @@ namespace AnimationCreator.Utils.Batch
                 {
                     new ApplicationPackageReference{ ApplicationId = "PolyRay", Version = "1" }
                 };
-
-
 
 
                 // ToDo: Commit the changes
@@ -86,7 +80,7 @@ namespace AnimationCreator.Utils.Batch
             Console.WriteLine("Creating job [{0}]...", jobId);
 
             // ToDo: Create the job definition
-            CloudJob job = m_BatchClient.JobOperations.CreateJob();
+            CloudJob job = _batchClient.JobOperations.CreateJob();
             job.Id = jobId;
 
 
@@ -98,10 +92,8 @@ namespace AnimationCreator.Utils.Batch
             job.OnAllTasksComplete = OnAllTasksComplete.TerminateJob;
 
 
-
             // ToDo: Commit the job
             await job.CommitAsync();
-
         }
 
 
@@ -145,7 +137,7 @@ namespace AnimationCreator.Utils.Batch
 
 
             // ToDo: Add the tasks collection to the job
-            await m_BatchClient.JobOperations.AddTaskAsync(jobId, tasks);
+            await _batchClient.JobOperations.AddTaskAsync(jobId, tasks);
 
 
             return tasks;
@@ -155,7 +147,7 @@ namespace AnimationCreator.Utils.Batch
 
         private async Task<SkuAndImage> GetNodeAgentSkuReferenceAsync(Func<ImageReference, bool> scanFunc)
         {
-            List<NodeAgentSku> nodeAgentSkus = await m_BatchClient.PoolOperations.ListNodeAgentSkus().ToListAsync();
+            List<NodeAgentSku> nodeAgentSkus = await _batchClient.PoolOperations.ListNodeAgentSkus().ToListAsync();
 
             NodeAgentSku nodeAgentSku = nodeAgentSkus.First(sku => sku.VerifiedImageReferences.FirstOrDefault(scanFunc) != null);
             ImageReference imageReference = nodeAgentSku.VerifiedImageReferences.First(scanFunc);

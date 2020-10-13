@@ -94,9 +94,6 @@ namespace AnimationCreator.Utils.Storage
         }
 
 
-
-
-
         string GetFrameName(int frameNumber)
         {
             return $"F{frameNumber.ToString().PadLeft(6, '0') }.tga";
