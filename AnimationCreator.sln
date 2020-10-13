@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimationCreator.Utils", "AnimationCreator.Utils\AnimationCreator.Utils.csproj", "{3AB3620A-4E83-45FC-9772-1C16D7AC023F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimationCreator.Console", "AnimationCreator.Console\AnimationCreator.Console.csproj", "{CA2D6BB2-F1B3-4536-B6D1-A8783FA6523D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3AB3620A-4E83-45FC-9772-1C16D7AC023F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AB3620A-4E83-45FC-9772-1C16D7AC023F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AB3620A-4E83-45FC-9772-1C16D7AC023F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AB3620A-4E83-45FC-9772-1C16D7AC023F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA2D6BB2-F1B3-4536-B6D1-A8783FA6523D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA2D6BB2-F1B3-4536-B6D1-A8783FA6523D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA2D6BB2-F1B3-4536-B6D1-A8783FA6523D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA2D6BB2-F1B3-4536-B6D1-A8783FA6523D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {51B99087-6A99-4338-888C-D5CC35EAB74E}
+	EndGlobalSection
+EndGlobal

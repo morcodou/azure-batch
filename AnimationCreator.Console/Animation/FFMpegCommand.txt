@@ -1,0 +1,3 @@
+ffmpeg.exe -f image2 -i "F%6d.tga" -b 10M Animation.avi
+pause
+
