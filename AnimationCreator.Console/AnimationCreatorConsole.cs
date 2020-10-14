@@ -26,17 +26,17 @@ namespace AnimationCreator.Console
             string poolName = "RenderPool";
             string jobName = "RenderJob";
 
-            ////// Create the Animation and upload to Blob storage
-            //System.Console.WriteLine("Press enter to CreateTestAnimation...");
-            //System.Console.ReadLine();
-            //CreateTestAnimation(width, height, numberOfFrames, generateErrors: false);
-            //System.Console.WriteLine("CreateTestAnimation complete!");
+            //// Create the Animation and upload to Blob storage
+            System.Console.WriteLine("Press enter to CreateTestAnimation...");
+            System.Console.ReadLine();
+            CreateTestAnimation(width, height, numberOfFrames, generateErrors: false);
+            System.Console.WriteLine("CreateTestAnimation complete!");
 
-            //// Create the Pool
-            //System.Console.WriteLine("Press enter to CreatePool...");
-            //System.Console.ReadLine();
-            //CreatePool(poolName);
-            //System.Console.WriteLine("CreatePool complete!");
+            // Create the Pool
+            System.Console.WriteLine("Press enter to CreatePool...");
+            System.Console.ReadLine();
+            CreatePool(poolName);
+            System.Console.WriteLine("CreatePool complete!");
 
             //// Create the Azure Batch job
             System.Console.WriteLine("Press enter to CreateJob...");

@@ -40,13 +40,24 @@ namespace AnimationCreator.Utils.Batch
                 var pool = _batchClient.PoolOperations.CreatePool(poolId: poolId,
 
                     // ToDo: Specify the VM size
-                    virtualMachineSize: "standard_d1_v2",
-                    targetDedicatedComputeNodes: 1,
+                    //virtualMachineSize: "standard_d1_v2",
+                    //targetDedicatedComputeNodes: 1,
+
+
+                    // Four Core VMS
+                    virtualMachineSize: "standard_d3_v2",
+                    targetDedicatedComputeNodes: 4,
 
                     // ToDo: Create a VM configuration
                     virtualMachineConfiguration: new VirtualMachineConfiguration(
                         skuAndImage.Image, skuAndImage.Sku.Id)
+
+
                 );
+
+                // With Four core VMS
+                pool.MaxTasksPerComputeNode = 4;
+                pool.TaskSchedulingPolicy = new TaskSchedulingPolicy(ComputeNodeFillType.Spread);
 
 
                 // ToDo: Add the application reference
